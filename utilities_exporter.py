@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+"""
+Exporter for my utilities usage. Currently just heat usage, but soon to be electicity etc
+"""
+
 import os
 import requests
 import time
@@ -7,6 +11,9 @@ import time
 from prometheus_client import start_http_server, Gauge
 
 def get_heat_usage(heat_org, heat_account, heat_token):
+    """
+    Queries coheat for the meter reading, taking a coheat org, account ID and a bearer token for the API
+    """
     url = 'https://api.client.coheat.co.uk/api/customer/v1/organization/{}/account/{}/meters'.format(heat_org, heat_account)
     headers = {'Authorization': 'Bearer {}'.format(heat_token)}
     r = requests.get(url, headers=headers)
