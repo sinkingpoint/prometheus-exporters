@@ -27,7 +27,7 @@ def main():
     start_http_server(8000)
     while True:
         process_metrics()
-        time.sleep(60)
+        time.sleep(300)
 
 if __name__ == '__main__':
     main()
